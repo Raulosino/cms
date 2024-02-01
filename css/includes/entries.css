@@ -1,0 +1,17 @@
+.svg-post-info{ 
+    fill:currentColor;
+    display:block; 
+    margin:auto;
+}
+
+.read-more-btn{
+    margin-top: 1rem;
+}
+
+.post-img{
+    max-width: 15vw;
+    max-height: 15vh;
+    display: block;
+    margin-bottom: 1rem;
+}
+
