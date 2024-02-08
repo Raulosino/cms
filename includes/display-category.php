@@ -1,3 +1,8 @@
+<?php
+    
+?>
+
+
 <!-- Custom CSS -->
 <link href="css/includes/entries.css" rel="stylesheet">
 
@@ -11,16 +16,20 @@
     <hr>
 
     <?php 
-        $query = "SELECT * FROM post";
-        $select_all_posts_query = mysqli_query($connection,$query);
+        if(isset($_GET['category'])){
+            $cat_id = $_GET['category'];
+        }
+    
+        $query = "SELECT * FROM post WHERE post_category_id = $cat_id";
+        $retrieve_posts_query = mysqli_query($connection,$query);
 
-        while($row = mysqli_fetch_assoc($select_all_posts_query)){
+        while($row = mysqli_fetch_assoc($retrieve_posts_query)){
             $post_id = $row['post_id'];
             $post_title = $row['post_title'];
             $post_author_id = $row['post_author_id'];
             $post_date = $row['post_date'];
             $post_image = $row['post_image'];
-            $post_content = substr($row['post_content'],0,50);
+            $post_content = $row['post_content'];
             $post_comment_count = $row['post_comment_count'];
             $post_likes = $row['post_likes'];
             $post_category_id = $row['post_category_id'];
