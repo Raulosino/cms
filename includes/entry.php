@@ -1,5 +1,4 @@
 <!-- Custom CSS -->
-<link href="css/includes/entries.css" rel="stylesheet">
 
 <div class="col-md-8">
 
@@ -11,10 +10,16 @@
     <hr>
 
     <?php 
-        $query = "SELECT * FROM post";
-        $select_all_posts_query = mysqli_query($connection,$query);
 
-        while($row = mysqli_fetch_assoc($select_all_posts_query)){
+        if(isset($_GET['p_id'])){
+            $selected_post_id = $_GET['p_id'];
+        }
+
+        /* Fetched post with $_GET*/
+        $query = "SELECT * FROM post WHERE post_id = {$selected_post_id} ";
+        $select_post_by_id = mysqli_query($connection,$query);
+
+        while($row = mysqli_fetch_assoc($select_post_by_id)){
             $post_id = $row['post_id'];
             $post_title = $row['post_title'];
             $post_author_id = $row['post_author_id'];
@@ -25,18 +30,16 @@
             $post_likes = $row['post_likes'];
             $post_category_id = $row['post_category_id'];
     ?>
-            
-
             <!-- Blog Post -->
             <h3>
-                <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title?></a>
+                <?php echo $post_title?>
             </h3>
             <p class="">
                 by <a href="index.php"><?php echo $post_author_id?></a>
             </p>
             <img class="img-responsive post-img" src="images/<?php echo $post_image;?>" alt="">
             <p class=""><span class="glyphicon glyphicon-time">&nbsp</span><?php echo $post_date?></p>
-            <!--<p class=""><?php echo $post_content?></p>-->
+            <p><?php echo $post_content?></p>
             <button type="button" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-chat svg-post-info" viewBox="0 0  16 16">
                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
@@ -49,7 +52,6 @@
                 </svg>
                 <?php echo $post_comment_count ?>
             </button>
-            <a class="btn btn-primary read-more-btn" href="#">Read more <span class="glyphicon glyphicon-chevron-right"></span></a>
             <hr>
     <?php 
         }

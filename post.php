@@ -1,4 +1,3 @@
-
 <!-- head -->
 <?php include "includes/head.php"; ?>
 
@@ -19,13 +18,17 @@
                 include "includes/entry.php";
             ?>
 
+            <!-- Blog Sidebar Widgets Column -->
+            <?php include "includes/sidebar.php";?>
 
+            <div class="col-md-12">
             <!-- Comments Form -->
             <div class="well">
-                <h4>Leave a Comment:</h4>
+                
                 <form role="form">
                     <div class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
+                    <h4>Leave a Comment:</h4>
+                        <textarea class="form-control" rows="3" style="overflow:auto;resize:none"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -47,6 +50,8 @@
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                 </div>
             </div>
+
+            <hr>
 
             <!-- Comment -->
             <div class="media">
@@ -74,16 +79,19 @@
                 </div>
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
-            <?php include "includes/sidebar.php";?>
+            <hr>
+            ahoy</div>
+           
 
         </div>
         <!-- /.row -->
+    </div>
 
-        <hr>
+   
+    
 
         <!-- Footer -->
-       <?php include "includes/footer.php";?>
+    <?php include "includes/footer.php";?>
 
 </body>
 
