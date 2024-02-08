@@ -4,7 +4,7 @@
 <?php 
 if(isset($_GET['edit'])){
     $edit_cat_id = $_GET['edit'];
-    $query = "SELECT *  FROM categories WHERE cat_id = {$edit_cat_id}";
+    $query = "SELECT * FROM category WHERE cat_id = {$edit_cat_id}";
     $edit_category_query = mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($edit_category_query )){
@@ -36,9 +36,8 @@ if(isset($_GET['edit'])){
 
 <?php
 if(isset($_POST['update_category'])){
-
     $update_cat_title = $_POST['update_cat_title'];
-    $query = "UPDATE categories SET cat_title = '{$update_cat_title}' WHERE cat_id = '{$cat_id}'";
+    $query = "UPDATE category SET cat_title = '{$update_cat_title}' WHERE cat_id = '{$cat_id}'";
     $update_query = mysqli_query($connection,$query);
     header("Location: categories.php");
 }

@@ -20,7 +20,7 @@
     <!-- Blog Categories Well -->
     <div class="well">
         <?php 
-            $query = "SELECT *  FROM categories";
+            $query = "SELECT *  FROM category";
             $select_all_categories_query = mysqli_query($connection,$query);
         ?>
         <h4>Blog Categories</h4>

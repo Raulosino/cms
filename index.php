@@ -9,9 +9,6 @@
 
     <!-- Page Content -->
     <div class="container">
-        <?php
-             echo 'Current PHP version: ' . phpversion();
-        ?>
         <div class="row">
 
             <!-- Blog Entries Column -->

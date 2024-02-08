@@ -17,7 +17,7 @@ function insert_categories(){
         if($cat_title == "" || empty($cat_title)){
             echo "<spam class='text-danger'>This field should not be empty</spam>";
         }else{
-            $query = "INSERT INTO categories(cat_title) ";
+            $query = "INSERT INTO category(cat_title) ";
             $query .= "VALUE('$cat_title') ";
 
             $create_category_query = mysqli_query($connection,$query);
@@ -35,7 +35,7 @@ function insert_categories(){
 //Displays all categories in a table
 function display_all_categories_table(){
     global $connection;
-    $query = "SELECT *  FROM categories";
+    $query = "SELECT *  FROM category";
     $select_all_categories_query = mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($select_all_categories_query)){
@@ -55,7 +55,7 @@ function delete_category(){
     global $connection;
     if(isset($_GET['delete'])){
         $delete_cat_id = $_GET['delete'];
-        $query = "DELETE FROM categories WHERE cat_id = {$delete_cat_id} ";
+        $query = "DELETE FROM category WHERE cat_id = {$delete_cat_id} ";
         $delete_query = mysqli_query($connection,$query);
         header("Location: categories.php");
     }
